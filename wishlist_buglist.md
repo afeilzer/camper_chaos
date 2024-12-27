@@ -6,7 +6,7 @@ Column view on pack list is currently not working (side by side list of all item
 # Wish List
 Current list of desired features I am hoping to add to the application
 1. ## Column app view
-I would like to have a side by side editing feature with the full searchable list of items next to the packlist
+    I would like to have a side by side editing feature with the full searchable list of items next to the packlist
 2. ## Pack templates
 Fast lists, like survival items or base items that should be included in every trip.
 3. ## Smart lists
