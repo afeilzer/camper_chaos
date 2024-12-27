@@ -137,7 +137,7 @@
         <td>{{ item.quantity }}</td>
         <td>
           {% if item.image_path %}
-            <img src="{{ url_for('static', filename=item.image_path.split('static/')[1]) }}"
+            <img src="{{ url_for('static', filename='uploads/'+item.image_path.split('static\\uploads\\')[1]) }}"
                  alt="{{ item.name }}"
                  style="max-width: 50px; max-height: 50px;" />
           {% endif %}

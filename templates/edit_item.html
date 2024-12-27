@@ -37,9 +37,9 @@
     <div class="form-group">
         <label for="image">Image</label><br>
         {% if item.image_path %}
-        <img src="{{ url_for('static', filename=item.image_path.split('static/')[1]) }}"
+        <img src="{{ url_for('static', filename='uploads/'+item.image_path.split('static\\uploads\\')[1]) }}"
              alt="{{ item.name }}"
-             style="max-width: 100px; max-height: 100px; margin-bottom: 10px;" />
+             style="max-width: 300px; max-height: 300px; margin-bottom: 10px;" />
         {% endif %}
         <input type="file" class="form-control-file" id="image" name="image">
     </div>
