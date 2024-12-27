@@ -1,0 +1,8 @@
+# Ignore virtual environment directory
+/__pycache__/
+/var/
+/include/
+/Lib/
+/Scripts/
+
+! ./*

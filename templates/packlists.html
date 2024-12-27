@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Your Packlists</h1>
+<p><a class="btn btn-primary" href="{{ url_for('create_packlist') }}">Create New Packlist</a></p>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Items Count</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for pl in packlists %}
+    <tr>
+      <td>{{ pl.name }}</td>
+      <td>{{ pl.items|length }}</td>
+      <td>
+        <a href="{{ url_for('show_packlist', packlist_id=pl.id) }}" class="btn btn-sm btn-info">View</a>
+        <form action="{{ url_for('delete_packlist', packlist_id=pl.id) }}" method="POST" class="d-inline">
+          <button type="submit" class="btn btn-sm btn-danger"
+                  onclick="return confirm('Are you sure you want to delete this packlist?');">Delete</button>
+        </form>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

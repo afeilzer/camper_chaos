@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Edit Item</h1>
+<form method="POST" enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" name="name" value="{{ item.name }}" required>
+    </div>
+    <div class="form-group">
+        <label for="description">Description</label>
+        <textarea class="form-control" id="description" name="description">{{ item.description }}</textarea>
+    </div>
+    <div class="form-group">
+        <label for="weight">Weight</label>
+        <input type="text" class="form-control" id="weight" name="weight" value="{{ item.weight }}">
+    </div>
+    <div class="form-group">
+        <label for="season">Season</label>
+        <input type="text" class="form-control" id="season" name="season" value="{{ item.season }}">
+    </div>
+    <div class="form-group">
+        <label for="keywords">Keywords</label>
+        <input type="text" class="form-control" id="keywords" name="keywords" value="{{ item.keywords }}">
+    </div>
+    <div class="form-group">
+        <label for="category">Category</label>
+        <input type="text" class="form-control" id="category" name="category" value="{{ item.category }}">
+    </div>
+    <div class="form-group">
+        <label for="url">URL</label>
+        <input type="text" class="form-control" id="url" name="url" value="{{ item.url }}">
+    </div>
+    <div class="form-group">
+        <label for="quantity">Quantity</label>
+        <input type="number" class="form-control" id="quantity" name="quantity" value="{{ item.quantity }}">
+    </div>
+    <div class="form-group">
+        <label for="image">Image</label><br>
+        {% if item.image_path %}
+        <img src="{{ url_for('static', filename=item.image_path.split('static/')[1]) }}"
+             alt="{{ item.name }}"
+             style="max-width: 100px; max-height: 100px; margin-bottom: 10px;" />
+        {% endif %}
+        <input type="file" class="form-control-file" id="image" name="image">
+    </div>
+    <button type="submit" class="btn btn-primary">Save Changes</button>
+</form>
+{% endblock %}

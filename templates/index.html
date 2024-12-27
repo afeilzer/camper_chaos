@@ -1,0 +1,174 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>All Items</h1>
+
+<!-- Filter & Sort Form (GET) -->
+<form class="form-inline mb-3" method="GET" action="{{ url_for('home') }}">
+  <!-- Text filter -->
+  <div class="form-group mr-2">
+    <label for="filter_text" class="mr-2">Search:</label>
+    <input type="text" class="form-control" name="filter_text"
+           id="filter_text" value="{{ filter_text }}"
+           placeholder="Filter by name, category, or season">
+  </div>
+
+  <!-- Keep current sort in hidden fields so the user doesn’t lose sort order on filter -->
+  <input type="hidden" name="sort" value="{{ sort_col }}">
+  <input type="hidden" name="order" value="{{ sort_order }}">
+
+  <button type="submit" class="btn btn-info">Apply</button>
+</form>
+
+<!-- Add-to-Packlist Form (POST) -->
+<form action="{{ url_for('add_to_packlist') }}" method="POST">
+  <!-- Choose which packlist to add items to -->
+  <div class="form-group">
+    <label for="packlist_id">Add selected items to Packlist:</label>
+    <select class="form-control" name="packlist_id" id="packlist_id">
+      <option value="" selected>-- Select a Packlist --</option>
+      {% for pl in packlists %}
+      <option value="{{ pl.id }}">{{ pl.name }}</option>
+      {% endfor %}
+    </select>
+  </div>
+
+  <table class="table table-bordered table-hover">
+    <thead class="thead-dark">
+      <tr>
+        <th>Select</th>
+        <!-- Sorting link for 'name' -->
+        <th>
+          <a href="{{ url_for('home', 
+                              sort='name', 
+                              order='asc' if (sort_col != 'name' or sort_order=='desc') else 'desc', 
+                              filter_text=filter_text) }}">
+            Name
+            {% if sort_col == 'name' %}
+              {% if sort_order == 'asc' %}
+                ▲
+              {% else %}
+                ▼
+              {% endif %}
+            {% endif %}
+          </a>
+        </th>
+        <th>Description</th>
+        <!-- Sorting link for 'weight' -->
+        <th>
+          <a href="{{ url_for('home', 
+                              sort='weight', 
+                              order='asc' if (sort_col != 'weight' or sort_order=='desc') else 'desc', 
+                              filter_text=filter_text) }}">
+            Weight
+            {% if sort_col == 'weight' %}
+              {% if sort_order == 'asc' %}
+                ▲
+              {% else %}
+                ▼
+              {% endif %}
+            {% endif %}
+          </a>
+        </th>
+        <!-- Sorting link for 'season' -->
+        <th>
+          <a href="{{ url_for('home', 
+                              sort='season', 
+                              order='asc' if (sort_col != 'season' or sort_order=='desc') else 'desc',
+                              filter_text=filter_text) }}">
+            Season
+            {% if sort_col == 'season' %}
+              {% if sort_order == 'asc' %}
+                ▲
+              {% else %}
+                ▼
+              {% endif %}
+            {% endif %}
+          </a>
+        </th>
+        <!-- Sorting link for 'category' -->
+        <th>
+          <a href="{{ url_for('home', 
+                              sort='category', 
+                              order='asc' if (sort_col != 'category' or sort_order=='desc') else 'desc',
+                              filter_text=filter_text) }}">
+            Category
+            {% if sort_col == 'category' %}
+              {% if sort_order == 'asc' %}
+                ▲
+              {% else %}
+                ▼
+              {% endif %}
+            {% endif %}
+          </a>
+        </th>
+        <!-- Sorting link for 'quantity' -->
+        <th>
+          <a href="{{ url_for('home', 
+                              sort='quantity', 
+                              order='asc' if (sort_col != 'quantity' or sort_order=='desc') else 'desc',
+                              filter_text=filter_text) }}">
+            Quantity
+            {% if sort_col == 'quantity' %}
+              {% if sort_order == 'asc' %}
+                ▲
+              {% else %}
+                ▼
+              {% endif %}
+            {% endif %}
+          </a>
+        </th>
+        <th>Image</th>
+        <th>URL</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in items %}
+      <tr>
+        <!-- Checkbox to select this item -->
+        <td>
+          <input type="checkbox" name="selected_items" value="{{ item.id }}">
+        </td>
+        <td>{{ item.name }}</td>
+        <td>{{ item.description }}</td>
+        <td>{{ item.weight }}</td>
+        <td>{{ item.season }}</td>
+        <td>{{ item.category }}</td>
+        <td>{{ item.quantity }}</td>
+        <td>
+          {% if item.image_path %}
+            <img src="{{ url_for('static', filename=item.image_path.split('static/')[1]) }}"
+                 alt="{{ item.name }}"
+                 style="max-width: 50px; max-height: 50px;" />
+          {% endif %}
+        </td>
+        <td>
+          {% if item.url %}
+          <a href="{{ item.url }}" target="_blank">Link</a>
+          {% endif %}
+        </td>
+        <td>
+          <a href="{{ url_for('edit_item', item_id=item.id) }}" 
+             class="btn btn-sm btn-primary">Edit</a>
+          <form action="{{ url_for('delete_item', item_id=item.id) }}"
+                method="POST" class="d-inline">
+            <button type="submit" class="btn btn-sm btn-danger"
+                    onclick="return confirm('Are you sure you want to delete this item?');">
+              Delete
+            </button>
+          </form>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <!-- Submit button to add the selected items to the chosen packlist -->
+  <button type="submit" class="btn btn-success">Add to Packlist</button>
+</form>
+
+<!-- Link to manage or create new packlists -->
+<p class="mt-4">
+  <a class="btn btn-secondary" href="{{ url_for('view_packlists') }}">View All Packlists</a>
+</p>
+{% endblock %}

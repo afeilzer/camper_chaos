@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>All Items</h1>
+<form action="{{ url_for('generate_checklist') }}" method="POST">
+  <table class="table table-bordered table-hover">
+    <thead class="thead-dark">
+      <tr>
+        <th>Select</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Weight</th>
+        <th>Season</th>
+        <th>Keywords</th>
+        <th>Category</th>
+        <th>Quantity</th>
+        <th>Image</th>
+        <th>URL</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in items %}
+      <tr>
+        <td>
+          <input type="checkbox" name="selected_items" value="{{ item.id }}">
+        </td>
+        <td>{{ item.name }}</td>
+        <td>{{ item.description }}</td>
+        <td>{{ item.weight }}</td>
+        <td>{{ item.season }}</td>
+        <td>{{ item.keywords }}</td>
+        <td>{{ item.category }}</td>
+        <td>{{ item.quantity }}</td>
+        <td>
+          {% if item.image_path %}
+          <img src="{{ url_for('static', filename=item.image_path.split('static/')[1]) }}"
+               alt="{{ item.name }}"
+               style="max-width: 50px; max-height: 50px;" />
+          {% endif %}
+        </td>
+        <td>
+          {% if item.url %}
+          <a href="{{ item.url }}" target="_blank">Link</a>
+          {% endif %}
+        </td>
+        <td>
+          <a href="{{ url_for('edit_item', item_id=item.id) }}" class="btn btn-sm btn-primary">Edit</a>
+          <form action="{{ url_for('delete_item', item_id=item.id) }}" method="POST" class="d-inline">
+            <button type="submit" class="btn btn-sm btn-danger" 
+                    onclick="return confirm('Are you sure you want to delete this item?');">Delete</button>
+          </form>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <button type="submit" class="btn btn-success">Create Checklist</button>
+</form>
+{% endblock %}

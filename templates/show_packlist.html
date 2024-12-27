@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>{{ packlist.name }}</h1>
+
+<div class="mb-3">
+  <form action="{{ url_for('clear_packlist', packlist_id=packlist.id) }}" method="POST" class="d-inline">
+    <button class="btn btn-warning" onclick="return confirm('Clear all items?');">Clear Packlist</button>
+  </form>
+  <button class="btn btn-success" onclick="window.print()">Print Packlist</button>
+  <a class="btn btn-secondary" href="{{ url_for('view_packlists') }}">Back to All Packlists</a>
+</div>
+
+<!-- 2-column layout -->
+<div class="row">
+  <div class="col-md-6">
+    <!-- Column 1 (first half of items) -->
+    {% set half = (packlist.items|length // 2) + (packlist.items|length % 2) %}
+    {% for i in range(half) %}
+      {% if packlist.items[i] %}
+      {% set pli = packlist.items[i] %}
+      <div class="card mb-2">
+        <div class="card-body">
+          <h5 class="card-title">{{ pli.item.name }} (Qty: {{ pli.item_quantity }})</h5>
+          <p class="card-text">{{ pli.item.description }}</p>
+          <form action="{{ url_for('remove_item_from_packlist', 
+                                   packlist_id=packlist.id, 
+                                   packlist_item_id=pli.id) }}" method="POST">
+            <button class="btn btn-sm btn-danger"
+                    onclick="return confirm('Remove this item?');">Remove</button>
+          </form>
+        </div>
+      </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+
+  <div class="col-md-6">
+    <!-- Column 2 (remaining items) -->
+    {% for i in range(half, packlist.items|length) %}
+      {% set pli = packlist.items[i] %}
+      <div class="card mb-2">
+        <div class="card-body">
+          <h5 class="card-title">{{ pli.item.name }} (Qty: {{ pli.item_quantity }})</h5>
+          <p class="card-text">{{ pli.item.description }}</p>
+          <form action="{{ url_for('remove_item_from_packlist', 
+                                   packlist_id=packlist.id, 
+                                   packlist_item_id=pli.id) }}" method="POST">
+            <button class="btn btn-sm btn-danger"
+                    onclick="return confirm('Remove this item?');">Remove</button>
+          </form>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}
