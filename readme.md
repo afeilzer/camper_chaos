@@ -18,6 +18,10 @@ I am hoping over time to make a wholistic trip planner that will allow you to sc
 * It serves its most essentail purpose, tracking all of my gear, in its current state.
 * I may not have chosen the best stack to make this with, but I wanted to make something quick with the technology I was familiar with
 
+# Screenshots
+
+![alt text](https://github.com/afeilzer/camper_chaos/blob/master/screenshots/camper_chaos_additem_interface.png?raw=true)
+
 # Getting Started
 
 Below are step-by-step instructions to get this application running on your local machine for development and testing.
