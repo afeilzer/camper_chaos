@@ -1,5 +1,9 @@
 # Description
-This app is intended to reduce the chaos around having way too many items for camping acquired over the years and needing a way to keep track of everything and come up with a common sense way to make a pack list for trips. I found myself taking way too much stuff into the woods every time I would go, and I am hoping this project will help me cut down to just the meaningful items needed for my trip. I am hoping over time to make a wholistic trip planner that will allow you to scout out locations, save a location wishlist, and use that geolocation information to help generate a packlist for the trip based on available information such as weather, regional plants and animals, regulations for the land (state, federal, etc), and information like nearby campgrounds and trails to plan activities while in the area (and have a backup plan in case the spot didnt work out).
+This app is intended to reduce the chaos around having way too many items for camping acquired over the years and needing a way to keep track of everything. I also wanted to come up with a common sense way to make a pack list for trips. 
+
+I found myself taking way too much stuff into the woods every time I would go, and I am hoping this project will help me cut down to just the meaningful items needed for my trip. 
+
+I am hoping over time to make a wholistic trip planner that will allow you to scout out locations, save a location wishlist, and use that geolocation information to help generate a packlist for the trip based on available information such as weather, regional plants and animals, regulations for the land (state, federal, etc), and information like nearby campgrounds and trails to plan activities while in the area (and have a backup plan in case the spot didnt work out).
 
 # Features
 * Inventory tracking for all of your camping gear
