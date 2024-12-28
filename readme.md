@@ -106,7 +106,7 @@ Contributions are welcome! Feel free to open issues, submit pull requests, or su
 
 ## License
 
-This project is open-source. You may use, modify, and distribute it under the terms of your chosen open-source license. Adjust this section to reflect your actual license if you have one in place.
+This project is open-source. You may use, modify, and distribute it as needed, but please provide credit by linking the original repo or my github where reasonable.
 
 ---
 
