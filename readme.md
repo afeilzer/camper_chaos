@@ -22,7 +22,7 @@ I am hoping over time to make a wholistic trip planner that will allow you to sc
 
 ![alt text](https://github.com/afeilzer/camper_chaos/blob/master/screenshots/camper_chaos_additem_interface.png?raw=true)
 
-<img src="https://github.com/afeilzer/camper_chaos/blob/master/screenshots/camper_chaos_additem_interface.png?raw=true" alt="Add Item Interface" width="480">
+<img src="https://github.com/afeilzer/camper_chaos/blob/master/screenshots/camper_chaos_additem_interface.png?raw=true" alt="Add Item Interface" width="480" style="margin: 0 auto; display: block;">
 
 # Getting Started
 
