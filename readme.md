@@ -18,24 +18,27 @@ I am hoping over time to make a wholistic trip planner that will allow you to sc
 * It serves its most essentail purpose, tracking all of my gear, in its current state.
 * I may not have chosen the best stack to make this with, but I wanted to make something quick with the technology I was familiar with
 
+# Example CSV Template
+<p align="center">This can be used as is or the entire framework can be reworked via the model object in the project. Example file available <a href="https://github.com/afeilzer/camper_chaos/blob/master/example.csv">here</a></p>
+
 # Screenshots
 
-* Main Inventory
+<p align="center">Main Inventory List</p>
 <p align="center">
     <img src="https://github.com/afeilzer/camper_chaos/blob/master/screenshots/camper_chaos_main_interface.png" alt="Main Interface" width="640" style="margin: 0 auto; display: block;">
 </p>
 
-* Packlists
+<p align="center">List of Packlists</p>
 <p align="center">
     <img src="https://github.com/afeilzer/camper_chaos/blob/master/screenshots/camper_chaos_packlist_interface.png" alt="View Packlists" width="640" style="margin: 0 auto; display: block;">
 </p>
 
-* View Packlist
+*<p align="center">Packlist Manager</p>
 <p align="center">
     <img src="https://github.com/afeilzer/camper_chaos/blob/master/screenshots/camper_chaos_packlist_interface2.png" alt="Packlist Manager" width="640" style="margin: 0 auto; display: block;">
 </p>
 
-* Add Item Screen
+<p align="center">Add Items</p>
 <p align="center">
     <img src="https://github.com/afeilzer/camper_chaos/blob/master/screenshots/camper_chaos_additem_interface.png?raw=true" alt="Add Item Interface" width="640" style="margin: 0 auto; display: block;">
 </p>
