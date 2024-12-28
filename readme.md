@@ -20,13 +20,12 @@ Below are step-by-step instructions to get this application running on your loca
 2. Navigate to the directory where you want to store the project.
 3. Run:
    ```bash
-   git clone https://github.com/your-github-username/camping-gear-tracker.git
+   git clone https://github.com/afeilzer/camper_chaos.git
    ```
-   Replace `your-github-username` and the repository name with the actual path for your GitHub repo.
 
 4. Navigate into the new project folder:
    ```bash
-   cd camping-gear-tracker
+   cd camper-chaos
    ```
 
 ## 3. Create and Activate a Virtual Environment (Optional but Recommended)
