@@ -14,6 +14,7 @@ from flask import (
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.utils import secure_filename
 
+
 # ------------------------------------------------------------------------------
 # Configuration
 # ------------------------------------------------------------------------------
@@ -113,7 +114,8 @@ def home():
         query = query.filter(
             (Item.name.ilike(f'%{filter_text}%')) |
             (Item.category.ilike(f'%{filter_text}%')) |
-            (Item.season.ilike(f'%{filter_text}%'))
+            (Item.season.ilike(f'%{filter_text}%')) |
+            (Item.keywords.ilike(f'%{filter_text}%'))
         )
 
     # 5. Validate the column requested for sorting
