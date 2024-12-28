@@ -20,12 +20,22 @@ I am hoping over time to make a wholistic trip planner that will allow you to sc
 
 # Screenshots
 
-## Main Inventory
+* Main Inventory
 <p align="center">
     <img src="https://github.com/afeilzer/camper_chaos/blob/master/screenshots/camper_chaos_main_interface.png" alt="Main Interface" width="640" style="margin: 0 auto; display: block;">
 </p>
 
-## Add Item Screen
+* Packlists
+<p align="center">
+    <img src="https://github.com/afeilzer/camper_chaos/blob/master/screenshots/camper_chaos_packlist_interface.png" alt="View Packlists" width="640" style="margin: 0 auto; display: block;">
+</p>
+
+* View Packlist
+<p align="center">
+    <img src="https://github.com/afeilzer/camper_chaos/blob/master/screenshots/camper_chaos_packlist_interface2.png" alt="Packlist Manager" width="640" style="margin: 0 auto; display: block;">
+</p>
+
+* Add Item Screen
 <p align="center">
     <img src="https://github.com/afeilzer/camper_chaos/blob/master/screenshots/camper_chaos_additem_interface.png?raw=true" alt="Add Item Interface" width="640" style="margin: 0 auto; display: block;">
 </p>
