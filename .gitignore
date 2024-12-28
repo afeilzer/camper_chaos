@@ -5,5 +5,5 @@
 /Lib/
 /Scripts/
 /backup/
+/pyvenv.cfg
 
-! ./*
